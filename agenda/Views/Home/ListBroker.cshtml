@@ -1,0 +1,42 @@
+﻿@model List<agenda.Models.Broker>
+
+@{
+    ViewBag.Title = "ListBroker";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var broker in Model)
+{
+    <table width="30%" border="1" cellspacing="1" cellpadding="1" id="tablebroker">
+        <tr>
+            <td>Nom</td>
+            <td>Prénom</td>
+            <td>Mail</td>
+            <td>PhoneNumber</td>
+
+        </tr>
+        <tr>
+            <td>
+                <p>@broker.LastName</p>
+            </td>
+            <td>
+                <p>@broker.FirstName</p>
+            </td>
+            <td>
+                <p>@broker.Mail</p>
+            </td>
+            <td>
+                <p>@broker.PhoneNumber</p>
+            </td>
+            <td>
+                <button>Modifier</button>
+            </td>
+
+        </tr>
+    </table>
+
+}
+<div class="col-sm-10 offset-sm-2">
+    <a href="/Home/AddBroker/" class="btn btn-primary" id="button">Ajouter un nouveau courtier</a>
+</div>
+

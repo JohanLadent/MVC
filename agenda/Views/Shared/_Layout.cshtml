@@ -1,0 +1,42 @@
+﻿@using System.Web.Optimization
+@{
+    Layout = null;
+    // Dans la requete en cours, on regarde l'url & on prend le chemin local, ce qui renvoie les Server/Controller
+    var url = HttpContext.Current.Request.Url.LocalPath;
+    // Transforme une chaine de caractères qui se coupe au niveau des'/' et dotnles parties se mettent dans les colonnes du tableau
+    var page = url.Split('/').Last();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content")
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/StyleSheet1.css")" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light" id="navbarBack">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbar">
+            <ul class="navbar-nav">
+                <li class="nav-item"> @Html.ActionLink("Accueil", "Index", "Home", null, new { @class = "nav-link" + (@page.Equals("Index") || string.IsNullOrEmpty(@page)?"active":"")})</li>
+                <li class="nav-item"> @Html.ActionLink("AddBroker", "AddBroker", "Home", null, new { @class = "nav-link" + (@page.Equals("AddBroker") ? "active" : "") })</li>
+                <li class="nav-item"> @Html.ActionLink("AddCustomer", "AddCustomer", "Home", null, new { @class = "nav-link" + (@page.Equals("AddCustomer") ? "active" : "")  })</li>
+                <li class="nav-item"> @Html.ActionLink("AddAppointment", "AddAppointment", "Home", null, new { @class = "nav-link" + (@page.Equals("AddAppointment") ? "active" : "") }) </li>
+                <li class="nav-item"> @Html.ActionLink("ProfilBroker", "ProfilBroker", "Home", null, new { @class = "nav-link" + (@page.Equals("ProfilBroker") ? "active" : "") }) </li>
+                <li class="nav-item"> @Html.ActionLink("ProfilCustomer", "ProfilCustomer", "Home", null, new { @class = "nav-link" + (@page.Equals("ProfilCustomer") ? "active" : "") })</li>
+                <li class="nav-item"> @Html.ActionLink("ListBroker", "ListBroker", "Home", null, new { @class = "nav-link" + (@page.Equals("ListBroker") ? "active" : "") })</li>
+                <li class="nav-item"> @Html.ActionLink("ListCustomer", "ListCustomer", "Home", null, new { @class = "nav-link" + (@page.Equals("ListCustomer") ? "active" : "") })</li>
+                </ul>
+            </div>
+        </nav>
+
+    @RenderBody()
+    @Scripts.Render("~/Scripts")
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿@model List<agenda.Models.Customer>
+@{
+    ViewBag.Title = "ListCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var customer in Model)
+{
+    <table width="30%" border="1" cellspacing="1" cellpadding="1" id="tablebroker">
+        <tr>
+            <td>Nom</td>
+            <td>Prénom</td>
+            <td>Mail</td>
+            <td>PhoneNumber</td>
+            <td>Budget</td>
+            <td>Subject</td>
+        </tr>
+        <tr>
+            <td>
+                <p>@customer.LastName</p>
+            </td>
+            <td>
+                <p>@customer.FirstName</p>
+            </td>
+            <td>
+                <p>@customer.Mail</p>
+            </td>
+            <td>
+                <p>@customer.PhoneNumber</p>
+            </td>
+            <td>
+                <p>@customer.Budget</p>
+            </td>
+            <td>
+                <p>@customer.Subject</p>
+            </td>
+        </tr>
+    </table>
+}
+
+<div class="col-sm-10 offset-sm-2">
+    <a href="/Home/AddCustomer/" class="btn btn-primary" id="button">Ajouter un nouveau client</a>
+</div>

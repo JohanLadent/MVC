@@ -1,0 +1,38 @@
+﻿@model agenda.Models.Broker
+@{
+    /**/
+
+    ViewBag.Title = "AddBroker";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center" id="text1">
+    <H2>Ajoutez un nouveau courtier</H2>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 justify-content-center" id="text1">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FirstName)
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName)
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Mail)
+                    @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PhoneNumber)
+                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <input class="btn btn-primary" type="submit" name="Enregistrer" />
+            }
+        </div>
+            </div>
+            </div>

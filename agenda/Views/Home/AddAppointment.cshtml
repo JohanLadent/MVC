@@ -1,0 +1,27 @@
+﻿@model agenda.Models.Appointment
+
+@{
+    ViewBag.Title = "AddAppointment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center" id="text1">
+    <h2>Ajoutez un rendez-vous</h2>
+</div>
+<form>
+    <div class="form-group text-center" id="text1">
+        <label for="formGroupExampleInput">Client</label>
+        <select type="text" id="formGroupExampleInput" placeholder="Example input"></select>
+    </div>
+    <div class="form-group text-center" id="text1">
+        <label for="formGroupExampleInput2">Courtier</label>
+        <select type="text" id="formGroupExampleInput2" placeholder="Another input"></select>
+    </div>
+    <div class="form-group text-center" id="text1">
+        <label for="formGroupExampleInput2">Heure de rendez-vous</label>
+        <input type="datetime" name="dt">
+    </div>
+    <div class="col-sm-8 offset-sm-2 text-center">
+        <button type="submit" class="btn btn-primary text-center">Enregister</button>
+    </div>
+</form>
+ 
